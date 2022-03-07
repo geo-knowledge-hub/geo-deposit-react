@@ -7,9 +7,9 @@
  */
 
 import React from "react";
-import ReactDOM from "react-dom";
-import App from "./demos/App";
 
-import "semantic-ui-css/semantic.min.css";
+const App = (props) => {
+  return <></>;
+};
 
-ReactDOM.render(<App />, document.getElementById("root"));
+export default App;
