@@ -57,7 +57,9 @@
     "rollup-plugin-url": "^3.0.0",
     "semantic-ui-css": "^2.4.0",
     "semantic-ui-react": "^2.1.0",
-    "yup": "^0.28.0"
+    "yup": "^0.28.0",
+    "@ckeditor/ckeditor5-build-classic": "^16.0.0",
+    "@ckeditor/ckeditor5-react": "^2.1.0"
   },
   "peerDependencies": {
     "@babel/runtime": "^7.9.0",
