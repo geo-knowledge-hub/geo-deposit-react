@@ -14,11 +14,11 @@ import { VocabularySuggestionField } from './VocabularySuggestionField';
 // import { i18next } from '@translations/i18next';
 
 /**
- * Engagement Priority Field.
+ * @nameWorkProgrammeActivityField
+ * @summary Engagement Priority Formik Field.
  *
- * Note:
- *  This component is based on `LanguagesField` provided by
- *  the `react-invenio-deposit` library.
+ * @note This component is based on `LanguagesField` provided by
+ *       the `react-invenio-deposit` library.
  */
 export const WorkProgrammeActivityField = ({ fieldPath, ...fieldProps }) => {
   return (

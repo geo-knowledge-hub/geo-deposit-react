@@ -14,14 +14,14 @@ import { FieldLabel, RemoteSelectField } from 'react-invenio-forms';
 // import { i18next } from '@translations/i18next';
 
 /**
- * Vucabulary Suggestion Field.
+ * @name VocabularySuggestionField
+ * @summary Base class for Formik Fields based on Vucabulary Suggestion.
  *
- * This field allow users to select on or more values from a list
- * based on a controlled vocabularty in the server.
+ * @description This field allow users to select on or more values from a list
+ *              based on a controlled vocabularty in the server.
  *
- * Note:
- *  This component is based on `LanguagesField` provided by
- *  the `react-invenio-deposit` library.
+ * @note This component is based on `LanguagesField` provided by
+ *       the `react-invenio-deposit` library.
  */
 export const VocabularySuggestionField = ({
   fieldPath,

@@ -14,11 +14,11 @@ import { VocabularySuggestionField } from './VocabularySuggestionField';
 // import { i18next } from '@translations/i18next';
 
 /**
- * Target Audience Selection Field.
+ * @name TargetAudienceField
+ * @summary Target Audience Selection Formik Field.
  *
- * Note:
- *  This component is based on `LanguagesField` provided by
- *  the `react-invenio-deposit` library.
+ * @note This component is based on `LanguagesField` provided by
+ *       the `react-invenio-deposit` library.
  */
 export const TargetAudienceField = ({ fieldPath, ...fieldProps }) => {
   return (
