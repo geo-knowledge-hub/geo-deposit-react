@@ -6,6 +6,10 @@
  * under the terms of the MIT License; see LICENSE file for more details.
  */
 
-export * from "./components";
-
-export { DepositRecordSerializer } from "./DepositRecordSerializer";
+export { Field } from "./Field";
+export { SchemaField } from "./SchemaField";
+export {
+    VocabularyField,
+    RightsVocabularyField,
+    AllowAdditionsVocabularyField
+} from "./vocabulary";
