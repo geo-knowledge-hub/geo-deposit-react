@@ -139,11 +139,11 @@ export class RightsVocabularyField extends VocabularyField {
 
     constructor({
         fieldpath,
-        deserializeDefault = null,
+        deserializedDefault = null,
         serializedDefault = null,
         localeFields = [],
     }) {
-        super({ fieldpath, deserializeDefault, serializedDefault });
+        super({ fieldpath, deserializedDefault, serializedDefault });
 
         this.localeFields = localeFields;
     }
