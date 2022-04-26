@@ -6,6 +6,5 @@
  * under the terms of the MIT License; see LICENSE file for more details.
  */
 
-export { TargetAudienceField } from './TargetAudienceField';
-export { EngagementPriorityField } from './EngagementPriorityField';
-export { WorkProgrammeActivityField } from './WorkProgrammeActivityField';
+export { ExternalResourceForm } from './ExternalResourceForm';
+export { ExternalResourceModal } from './ExternalResourceModal';
