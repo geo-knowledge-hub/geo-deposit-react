@@ -6,6 +6,7 @@
  * under the terms of the MIT License; see LICENSE file for more details.
  */
 
-export * from './Fields';
-export * from './Tables';
-export * from './Modals';
+export const CREATIBUTOR_TYPE = {
+  PERSON: 'personal',
+  ORGANIZATION: 'organizational',
+};
