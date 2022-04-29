@@ -17,8 +17,9 @@ import {
 } from 'react-invenio-deposit';
 
 /**
- * Additional information section organism for the Deposit Interface.
+ * Additional information section molecules for the Deposit Interface.
  *
+ * @type Molecule
  */
 export const AdditionalInformationSection = ({
   vocabulariesContext,

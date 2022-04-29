@@ -9,10 +9,11 @@
 import React from 'react';
 
 /**
- * Associated people section organism for the Deposit Interface.
+ * Associated entity section organism for the Deposit Interface.
  *
- * ToDo: Implement this component
+ * ToDo: Implement the Atoms to compose this component
+ * @type Molecule
  */
-export const AssociatedPeopleSection = ({ recordContext }) => {
+export const CreatibutorsSection = ({ recordContext }) => {
   return <></>;
 };

@@ -10,13 +10,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import { Formik } from 'formik';
-import { AssociatedPeopleSection } from './AssociatedPeopleSection';
+import { CreatibutorsSection } from './CreatibutorsSection';
 
 it('renders without crashing without props', () => {
   const div = document.createElement('div');
 
-  ReactDOM.render(
-    <Formik>{(props) => <AssociatedPeopleSection />}</Formik>,
-    div
-  );
+  ReactDOM.render(<Formik>{(props) => <CreatibutorsSection />}</Formik>, div);
 });

@@ -19,6 +19,7 @@ import {
 /**
  * Basic information section organism for the Deposit Interface.
  *
+ * @type Molecule
  */
 export const BasicInformationSection = ({
   configContext,

@@ -7,7 +7,7 @@
  */
 
 export { AssociatedFilesSection } from './AssociatedFilesSection';
-export { AssociatedPeopleSection } from './AssociatedPeopleSection';
+export { CreatibutorsSection } from './CreatibutorsSection';
 export { AdditionalInformationSection } from './AdditionalInformationSection';
 export { BasicInformationSection } from './BasicInformationSection';
-export { LegalSection } from './BasicInformationSection';
+export { LegalSection } from './LegalSection';

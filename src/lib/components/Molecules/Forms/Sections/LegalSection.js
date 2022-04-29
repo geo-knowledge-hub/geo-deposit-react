@@ -8,15 +8,14 @@
 
 import React from 'react';
 
-import _get from 'lodash/get';
-
 import { LicenseField, VersionField } from 'react-invenio-deposit';
 
 /**
  * Legal information section organism for the Deposit Interface.
- *
+ * 
+ * @type Molecule
  */
-export const LegalSection = ({}) => {
+export const LegalSection = () => {
   return (
     <>
       <VersionField />

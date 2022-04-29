@@ -15,11 +15,12 @@ import {
   EngagementPriorityField,
   TargetAudienceField,
   WorkProgrammeActivityField,
-} from '../../Atoms';
+} from '../../../Atoms';
 
 /**
  * Associated initiatives section organism for the Deposit Interface.
  *
+ * @type Molecule
  */
 export const AssociatedInitiativeSection = ({ recordContext }) => {
   return (

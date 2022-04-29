@@ -13,8 +13,9 @@ import _get from 'lodash/get';
 import { FileUploader } from 'react-invenio-deposit';
 
 /**
- * Associated files section organism for the Deposit Interface.
- *
+ * Associated files section for the Deposit Interface.
+ * 
+ * @type Molecule
  * ToDo: Implement Embargo component
  */
 export const AssociatedFilesSection = ({ recordContext }) => {
