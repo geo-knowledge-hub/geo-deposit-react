@@ -9,20 +9,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import { Form, Formik } from 'formik';
+import { Formik } from 'formik';
+import { AssociatedPeopleSection } from './AssociatedPeopleSection';
 
-import { ExternalResourceModal } from './ExternalResourceModal';
-
-it('renders without crashing', () => {
+it('renders without crashing without props', () => {
   const div = document.createElement('div');
+
   ReactDOM.render(
-    <Formik>
-      {(props) => (
-        <Form>
-          <ExternalResourceModal fieldPath={'fieldpath'} />
-        </Form>
-      )}
-    </Formik>,
+    <Formik>{(props) => <AssociatedPeopleSection />}</Formik>,
     div
   );
 });

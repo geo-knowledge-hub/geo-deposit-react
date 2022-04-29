@@ -14,39 +14,40 @@ import { VocabularySuggestionField } from './VocabularySuggestionField';
 // import { i18next } from '@translations/i18next';
 
 /**
- * @nameWorkProgrammeActivityField
- * @summary Engagement Priority Formik Field.
+ * @name TargetAudienceField
+ * @summary Target Audience Selection Formik Field.
  *
  * @note This component is based on `LanguagesField` provided by
  *       the `react-invenio-deposit` library.
  */
-export const WorkProgrammeActivityField = ({ fieldPath, ...fieldProps }) => {
+export const TargetAudienceField = ({ fieldPath, ...fieldProps }) => {
   return (
     <VocabularySuggestionField
-      multiple={false}
       fieldPath={fieldPath}
-      suggestionAPIUrl="/api/vocabularies/geowptypes"
+      suggestionAPIUrl="/api/vocabularies/targetaudiencestypes"
       {...fieldProps}
     />
   );
 };
 
-WorkProgrammeActivityField.propTypes = {
-  fieldPath: PropTypes.string.isRequired,
+TargetAudienceField.propTypes = {
+  fieldPath: PropTypes.string,
   label: PropTypes.string,
   labelIcon: PropTypes.string,
   required: PropTypes.bool,
+  multiple: PropTypes.bool,
   clearable: PropTypes.bool,
   placeholder: PropTypes.string,
   serializeSuggestions: PropTypes.func,
 };
 
-WorkProgrammeActivityField.defaultProps = {
-  fieldPath: 'metadata.geo_work_programme_activity',
-  label: 'GEO Work Programme Activity',
-  labelIcon: 'globe',
+TargetAudienceField.defaultProps = {
+  fieldPath: 'metadata.target_audiences',
+  label: 'Target Audiences',
+  labelIcon: 'users',
+  multiple: true,
   clearable: true,
   required: true,
-  placeholder: 'Search for a GEO Work Programme Activity',
-  noQueryMessage: 'Start typing to search for a GEO Work Programme Activity',
+  placeholder: 'Search for Target Audiences',
+  noQueryMessage: 'Start typing to search for Target Audience',
 };

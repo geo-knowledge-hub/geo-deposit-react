@@ -6,6 +6,13 @@
  * under the terms of the MIT License; see LICENSE file for more details.
  */
 
-export * from './components';
+import React from 'react';
 
-export { DepositRecordSerializer } from './DepositRecordSerializer';
+/**
+ * Associated people section organism for the Deposit Interface.
+ *
+ * ToDo: Implement this component
+ */
+export const AssociatedPeopleSection = ({ recordContext }) => {
+  return <></>;
+};

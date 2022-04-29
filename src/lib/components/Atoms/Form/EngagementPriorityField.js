@@ -9,28 +9,32 @@
 import React from 'react';
 
 import PropTypes from 'prop-types';
+
 import { VocabularySuggestionField } from './VocabularySuggestionField';
 
 // import { i18next } from '@translations/i18next';
 
 /**
- * @name TargetAudienceField
- * @summary Target Audience Selection Formik Field.
+ * @name EngagementPriorityField
+ * @summary Engagement Priority Formik Field.
  *
  * @note This component is based on `LanguagesField` provided by
  *       the `react-invenio-deposit` library.
  */
-export const TargetAudienceField = ({ fieldPath, ...fieldProps }) => {
+export const EngagementPriorityField = ({ fieldPath, ...fieldProps }) => {
   return (
     <VocabularySuggestionField
       fieldPath={fieldPath}
-      suggestionAPIUrl="/api/vocabularies/targetaudiencestypes"
+      suggestionAPIUrl="/api/vocabularies/engagementprioritiestypes"
+      suggestionAPIHeaders={{
+        Accept: 'application/vnd.inveniordm.v1+json',
+      }}
       {...fieldProps}
     />
   );
 };
 
-TargetAudienceField.propTypes = {
+EngagementPriorityField.propTypes = {
   fieldPath: PropTypes.string.isRequired,
   label: PropTypes.string,
   labelIcon: PropTypes.string,
@@ -41,13 +45,13 @@ TargetAudienceField.propTypes = {
   serializeSuggestions: PropTypes.func,
 };
 
-TargetAudienceField.defaultProps = {
-  fieldPath: 'metadata.target_audiences',
-  label: 'Target Audiences',
-  labelIcon: 'users',
+EngagementPriorityField.defaultProps = {
+  fieldPath: 'metadata.engagement_priorities',
+  label: 'Engagement Priorities',
+  labelIcon: 'flag',
   multiple: true,
   clearable: true,
   required: true,
-  placeholder: 'Search for Target Audiences',
-  noQueryMessage: 'Start typing to search for Target Audience',
+  placeholder: 'Search for Engagement Priorities',
+  noQueryMessage: 'Start typing to search for an engagement priority',
 };

@@ -6,6 +6,6 @@
  * under the terms of the MIT License; see LICENSE file for more details.
  */
 
-export * from './components';
-
-export { DepositRecordSerializer } from './DepositRecordSerializer';
+export { TargetAudienceField } from './TargetAudienceField';
+export { EngagementPriorityField } from './EngagementPriorityField';
+export { WorkProgrammeActivityField } from './WorkProgrammeActivityField';

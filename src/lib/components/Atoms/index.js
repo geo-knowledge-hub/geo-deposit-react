@@ -6,5 +6,4 @@
  * under the terms of the MIT License; see LICENSE file for more details.
  */
 
-export { ExternalResourceForm } from './ExternalResourceForm';
-export { ExternalResourceModal } from './ExternalResourceModal';
+export * from './Form';

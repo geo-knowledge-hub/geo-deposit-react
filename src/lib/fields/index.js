@@ -6,10 +6,10 @@
  * under the terms of the MIT License; see LICENSE file for more details.
  */
 
-export { Field } from "./Field";
-export { SchemaField } from "./SchemaField";
+export { Field } from './Field';
+export { SchemaField } from './SchemaField';
 export {
-    VocabularyField,
-    RightsVocabularyField,
-    AllowAdditionsVocabularyField
-} from "./vocabulary";
+  VocabularyField,
+  RightsVocabularyField,
+  AllowAdditionsVocabularyField,
+} from './vocabulary';

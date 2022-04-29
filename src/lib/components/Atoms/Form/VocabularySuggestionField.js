@@ -59,7 +59,7 @@ export const VocabularySuggestionField = ({
 };
 
 VocabularySuggestionField.propTypes = {
-  fieldPath: PropTypes.string.isRequired,
+  fieldPath: PropTypes.string,
   label: PropTypes.string,
   labelIcon: PropTypes.string,
   required: PropTypes.bool,

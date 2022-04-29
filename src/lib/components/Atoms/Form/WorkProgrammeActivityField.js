@@ -9,49 +9,44 @@
 import React from 'react';
 
 import PropTypes from 'prop-types';
-
 import { VocabularySuggestionField } from './VocabularySuggestionField';
 
 // import { i18next } from '@translations/i18next';
 
 /**
- * @name EngagementPriorityField
+ * @nameWorkProgrammeActivityField
  * @summary Engagement Priority Formik Field.
  *
- * @note This component is based on `LanguagesField` provided by 
+ * @note This component is based on `LanguagesField` provided by
  *       the `react-invenio-deposit` library.
  */
-export const EngagementPriorityField = ({ fieldPath, ...fieldProps }) => {
+export const WorkProgrammeActivityField = ({ fieldPath, ...fieldProps }) => {
   return (
     <VocabularySuggestionField
+      multiple={false}
       fieldPath={fieldPath}
-      suggestionAPIUrl="/api/vocabularies/engagementprioritiestypes"
-      suggestionAPIHeaders={{
-        Accept: 'application/vnd.inveniordm.v1+json',
-      }}
+      suggestionAPIUrl="/api/vocabularies/geowptypes"
       {...fieldProps}
     />
   );
 };
 
-EngagementPriorityField.propTypes = {
-  fieldPath: PropTypes.string.isRequired,
+WorkProgrammeActivityField.propTypes = {
+  fieldPath: PropTypes.string,
   label: PropTypes.string,
   labelIcon: PropTypes.string,
   required: PropTypes.bool,
-  multiple: PropTypes.bool,
   clearable: PropTypes.bool,
   placeholder: PropTypes.string,
   serializeSuggestions: PropTypes.func,
 };
 
-EngagementPriorityField.defaultProps = {
-  fieldPath: 'metadata.engagement_priorities',
-  label: 'Engagement Priorities',
-  labelIcon: 'flag',
-  multiple: true,
+WorkProgrammeActivityField.defaultProps = {
+  fieldPath: 'metadata.geo_work_programme_activity',
+  label: 'GEO Work Programme Activity',
+  labelIcon: 'globe',
   clearable: true,
   required: true,
-  placeholder: 'Search for Engagement Priorities',
-  noQueryMessage: 'Start typing to search for an engagement priority',
+  placeholder: 'Search for a GEO Work Programme Activity',
+  noQueryMessage: 'Start typing to search for a GEO Work Programme Activity',
 };

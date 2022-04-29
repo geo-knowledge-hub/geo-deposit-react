@@ -8,8 +8,12 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './demos/App';
 
-import 'semantic-ui-css/semantic.min.css';
+import { Formik } from 'formik';
+import { LegalSection } from './LegalSection';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+it('renders without crashing without props', () => {
+  const div = document.createElement('div');
+
+  ReactDOM.render(<Formik>{(props) => <LegalSection />}</Formik>, div);
+});
