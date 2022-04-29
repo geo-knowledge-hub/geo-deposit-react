@@ -6,22 +6,82 @@
  * under the terms of the MIT License; see LICENSE file for more details.
  */
 
-import React from 'react';
+import React, { useMemo } from 'react';
 import { Formik } from 'formik';
+
+import { Button, Container, Message, Header } from 'semantic-ui-react';
 
 import {
   WorkProgrammeActivityField,
   TargetAudienceField,
   EngagementPriorityField,
 } from '../lib/components';
+import { BaseTable } from '../lib/components/Atoms/Tables/BaseTable';
 
 /**
  * GEO Deposit App component example.
  */
 const App = () => {
+  // Table configurations
+  const baseTableColumnsExample = useMemo(() => {
+    return [
+      {
+        Header: 'Name',
+        accessor: 'name',
+      },
+      {
+        Header: 'Role',
+        accessor: 'role',
+      },
+      {
+        Header: 'Type',
+        accessor: 'type',
+      },
+      {
+        id: 'edit-selector',
+        Header: () => null,
+        Cell: ({ row }) => (
+          <Button
+            onClick={() => {
+              alert(
+                `You have selected the row(${row.id}) associated to ${row.values.name}`
+              );
+            }}
+          >
+            Edit
+          </Button>
+        ),
+      },
+    ];
+  });
+
+  const baseTableDataExample = useMemo(
+    () => [
+      {
+        name: 'Gabriela',
+        role: 'Producer',
+        type: 'Creator',
+      },
+      {
+        name: 'José',
+        role: 'Producer',
+        type: 'Contributor',
+      },
+    ],
+    []
+  );
+
   return (
-    <div className={'form-div'}>
-      <h1>GEO Deposit React</h1>
+    <Container text style={{ marginTop: '7em' }}>
+      <Header as="h1">GEO Deposit React (Components showcase)</Header>
+      <Message info>
+        <Message.Header>About</Message.Header>
+        <p>
+          This page shows example of components available on GEO Deposit Page.
+        </p>
+      </Message>
+
+      <Header as="h2">Form fields</Header>
       <Formik
         initialValues={{
           metadata: {
@@ -59,14 +119,19 @@ const App = () => {
           <WorkProgrammeActivityField
             initialSuggestions={[
               {
-                title_l10n: 'GOS FOUR EME',
+                title_l10n: 'GEO Vision for Energy (GEO-VENER)',
                 id: 'geo-activities-gos4m',
               },
             ]}
           />
+
+          <BaseTable
+            columnsConfiguration={baseTableColumnsExample}
+            data={baseTableDataExample}
+          />
         </>
       </Formik>
-    </div>
+    </Container>
   );
 };
 
