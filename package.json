@@ -73,7 +73,9 @@
     "semantic-ui-react": "^2.1.0",
     "yup": "^0.28.0",
     "@ckeditor/ckeditor5-build-classic": "^16.0.0",
-    "@ckeditor/ckeditor5-react": "^2.1.0"
+    "@ckeditor/ckeditor5-react": "^2.1.0",
+    "react-table": "^7.7.0",
+    "styled-components": "^5.3.5"
   },
   "peerDependencies": {
     "@babel/runtime": "^7.9.0",
@@ -98,7 +100,9 @@
     "react-dnd-html5-backend": "^11.1.0",
     "semantic-ui-css": "^2.4.0",
     "semantic-ui-react": "^2.1.0",
-    "yup": "^0.28.0"
+    "yup": "^0.28.0",
+    "react-table": "^7.7.0",
+    "styled-components": "^5.3.5"
   },
   "browserslist": {
     "production": [
@@ -123,8 +127,5 @@
     "moduleNameMapper": {
       "@translations/i18next": "<rootDir>/src/lib/i18next"
     }
-  },
-  "dependencies": {
-    "styled-components": "^5.3.5"
   }
 }
