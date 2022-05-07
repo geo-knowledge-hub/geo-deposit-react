@@ -45,9 +45,7 @@ export const VocabularySuggestionField = ({
       required={required}
       clearable={clearable}
       multiple={multiple}
-      label={
-        <FieldLabel htmlFor={fieldPath} icon={labelIcon} label={label} />
-      }
+      label={<FieldLabel htmlFor={fieldPath} icon={labelIcon} label={label} />}
       serializeSuggestions={(data) => {
         return data.map((obj) => ({
           key: obj.id,
