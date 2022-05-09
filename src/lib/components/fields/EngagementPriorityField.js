@@ -18,7 +18,7 @@ import { VocabularySuggestionField } from './VocabularySuggestionField';
  * @name EngagementPriorityField
  * @summary Engagement Priority Formik Field.
  *
- * @note This component is based on `LanguagesField` provided by 
+ * @note This component is based on `LanguagesField` provided by
  *       the `react-invenio-deposit` library.
  */
 export const EngagementPriorityField = ({ fieldPath, ...fieldProps }) => {
