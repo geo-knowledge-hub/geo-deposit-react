@@ -11,7 +11,7 @@
 
 React application for GEO Knowledge Hub deposit forms. 
 
-## about
+## About
 
 This repository is a fork from the [React Invenio Deposit](https://github.com/inveniosoftware/react-invenio-deposit) package developed by the [Invenio Team](https://github.com/inveniosoftware). This fork incorporates GEO Knowledge Hub-specific features and modifications to the original package.
 
