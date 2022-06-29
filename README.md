@@ -1,7 +1,7 @@
 # GEO Deposit React
 
 <!-- [![Release](https://img.shields.io/npm/v/react-invenio-deposit)](https://www.npmjs.com/package/react-invenio-deposit) -->
-[![Build Status](https://github.com/geo-knowledge-hub/geo-components-react/workflows/CI/badge.svg)](https://github.com/geo-knowledge-hub/geo-deposit-hub/actions?query=workflow%3ACI)
+[![Build Status](https://github.com/geo-knowledge-hub/geo-deposit-react/workflows/CI/badge.svg)](https://github.com/geo-knowledge-hub/geo-deposit-react/actions?query=workflow%3ACI)
 [![Software Life Cycle](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://lifecycle.r-lib.org/articles/stages.html#maturing-1)
 [![Software License](https://img.shields.io/github/license/geo-knowledge-hub/geo-deposit-react.svg)](https://github.com/geo-knowledge-hub/geo-deposit-react/blob/master/LICENSE)
 
