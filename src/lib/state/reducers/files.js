@@ -18,29 +18,31 @@ import {
   FILE_UPLOAD_IN_PROGRESS,
   FILE_UPLOAD_SAVE_DRAFT_FAILED,
   FILE_UPLOAD_SET_CANCEL_FUNCTION,
-} from '../types';
+} from "../types";
 
 export const UploadState = {
   // initial: 'initial', // no file or the initial file selected
-  uploading: 'uploading', // currently uploading a file from the UI
-  error: 'error', // upload failed
-  finished: 'finished', // upload finished (uploaded file is the field's current file)
-  pending: 'pending', // files retrieved from the backend are in pending state
+  uploading: "uploading", // currently uploading a file from the UI
+  error: "error", // upload failed
+  finished: "finished", // upload finished (uploaded file is the field's current file)
+  pending: "pending", // files retrieved from the backend are in pending state
 };
 
 const initialState = {};
 
 const fileReducer = (state = initialState, action) => {
   let newState;
+  // Filename needs to be normalised due to encoding differences between client and server.
+  const remoteFileName = action.payload?.filename?.normalize() ?? "";
   switch (action.type) {
     case FILE_UPLOAD_ADDED:
       return {
         ...state,
         entries: {
           ...state.entries,
-          [action.payload.filename]: {
+          [remoteFileName]: {
             progressPercentage: 0,
-            name: action.payload.filename,
+            name: remoteFileName,
             size: 0,
             status: UploadState.pending,
             checksum: null,
@@ -55,8 +57,8 @@ const fileReducer = (state = initialState, action) => {
         ...state,
         entries: {
           ...state.entries,
-          [action.payload.filename]: {
-            ...state.entries[action.payload.filename],
+          [remoteFileName]: {
+            ...state.entries[remoteFileName],
             progressPercentage: action.payload.percent,
             status: UploadState.uploading,
           },
@@ -69,8 +71,8 @@ const fileReducer = (state = initialState, action) => {
         ...state,
         entries: {
           ...state.entries,
-          [action.payload.filename]: {
-            ...state.entries[action.payload.filename],
+          [remoteFileName]: {
+            ...state.entries[remoteFileName],
             status: UploadState.finished,
             size: action.payload.size,
             progressPercentage: 100,
@@ -98,8 +100,8 @@ const fileReducer = (state = initialState, action) => {
         ...state,
         entries: {
           ...state.entries,
-          [action.payload.filename]: {
-            ...state.entries[action.payload.filename],
+          [remoteFileName]: {
+            ...state.entries[remoteFileName],
             status: UploadState.error,
             cancelUploadFn: null,
           },
@@ -117,33 +119,32 @@ const fileReducer = (state = initialState, action) => {
         ...state,
         entries: {
           ...state.entries,
-          [action.payload.filename]: {
-            ...state.entries[action.payload.filename],
+          [remoteFileName]: {
+            ...state.entries[remoteFileName],
             cancelUploadFn: action.payload.cancelUploadFn,
           },
         },
         actionState: action.type,
       };
-    case FILE_UPLOAD_CANCELLED:
-      const {
-        [action.payload.filename]: cancelledFile,
-        ...afterCancellationEntriesState
-      } = state.entries;
+    case FILE_UPLOAD_CANCELLED: {
+      // eslint-disable-next-line no-unused-vars
+      const { [remoteFileName]: cancelledFile, ...afterCancellationEntriesState } =
+        state.entries;
       return {
         ...state,
         entries: {
           ...afterCancellationEntriesState,
         },
-        isFileUploadInProgress: Object.values(
-          afterCancellationEntriesState
-        ).some((value) => value.status === UploadState.uploading),
+        isFileUploadInProgress: Object.values(afterCancellationEntriesState).some(
+          (value) => value.status === UploadState.uploading
+        ),
         actionState: action.type,
       };
-    case FILE_DELETED_SUCCESS:
-      const {
-        [action.payload.filename]: deletedFile,
-        ...afterDeletionEntriesState
-      } = state.entries;
+    }
+    case FILE_DELETED_SUCCESS: {
+      // eslint-disable-next-line no-unused-vars
+      const { [remoteFileName]: deletedFile, ...afterDeletionEntriesState } =
+        state.entries;
       return {
         ...state,
         entries: { ...afterDeletionEntriesState },
@@ -152,6 +153,7 @@ const fileReducer = (state = initialState, action) => {
         ),
         actionState: action.type,
       };
+    }
     case FILE_DELETE_FAILED:
       return {
         ...state,

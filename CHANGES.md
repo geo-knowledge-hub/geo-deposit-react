@@ -1,5 +1,29 @@
 # Changes
 
+Version 0.20.0 (released 2022-08-19)
+
+* Bump release for RDM v10
+
+Version 0.19.15 (released 2022-07-08)
+
+* fix payload sent for restricted community
+
+Version 0.19.14 (released 2022-07-05)
+
+* utils: exports function humanReadableBytes to be used outside react-invenio-deposit.
+* creatibutors: fixed dropdown off-screen rendering
+
+Version 0.19.13 (released 2022-07-01)
+
+* fix community header margins on mobile view
+* add vertical spacing to button in funding field
+* add labels and remove custom css on file table
+* add community visitibility labels
+
+Version 0.19.12 (released 2022-06-29)
+
+* fix uploaded filename encoding comparison
+
 Version 0.19.11 (released 2022-06-22)
 
 * fix non-validation error propagation
