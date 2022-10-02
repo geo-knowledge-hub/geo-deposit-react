@@ -56,11 +56,11 @@ export class SaveRecordButtonComponent extends Component {
 
 SaveRecordButtonComponent.propTypes = {
   formik: PropTypes.object.isRequired,
-  actionState: PropTypes.string
+  actionState: PropTypes.string,
 };
 
 SaveRecordButtonComponent.defaultProps = {
-  actionState: undefined
+  actionState: undefined,
 };
 
 const mapStateToProps = (state) => ({

@@ -35,7 +35,11 @@ async function changeURLAfterCreation(draftURL) {
   window.history.replaceState(undefined, "", draftURL);
 }
 
-export const saveDraftMaybeUpdatingUrl = async (draft, draftsService, updateUrl = true) => {
+export const saveDraftMaybeUpdatingUrl = async (
+  draft,
+  draftsService,
+  updateUrl = true
+) => {
   const hasAlreadyId = !!draft.id;
   const response = await draftsService.save(draft);
   if (!hasAlreadyId) {
@@ -57,11 +61,8 @@ async function _saveDraft(
 ) {
   let response;
 
-  console.log('updateUrl');
-  console.log(updateUrl);
-
   try {
-    response = await saveDraftMaybeUpdatingUrl(draft, draftsService, updateUrl = updateUrl);
+    response = await saveDraftMaybeUpdatingUrl(draft, draftsService, updateUrl);
   } catch (error) {
     dispatchFn({
       type: failType,
@@ -131,12 +132,17 @@ export const save = (draft, updateUrl = true) => {
     });
     let response;
 
-    response = await _saveDraft(draft, config.service.drafts, {
-      depositState: getState().deposit,
-      dispatchFn: dispatch,
-      failType: DRAFT_SAVE_FAILED,
-      partialValidationActionType: DRAFT_HAS_VALIDATION_ERRORS,
-    }, updateUrl = updateUrl);
+    response = await _saveDraft(
+      draft,
+      config.service.drafts,
+      {
+        depositState: getState().deposit,
+        dispatchFn: dispatch,
+        failType: DRAFT_SAVE_FAILED,
+        partialValidationActionType: DRAFT_HAS_VALIDATION_ERRORS,
+      },
+      updateUrl
+    );
 
     dispatch({
       type: DRAFT_SAVE_SUCCEEDED,
@@ -275,7 +281,11 @@ export const reservePID = (draft, { pidType }) => {
     });
 
     try {
-      let response = await saveDraftMaybeUpdatingUrl(draft, config.service.drafts, false);
+      let response = await saveDraftMaybeUpdatingUrl(
+        draft,
+        config.service.drafts,
+        false
+      );
 
       const draftWithLinks = response.data;
       response = await config.service.drafts.reservePID(draftWithLinks.links, pidType);
@@ -305,7 +315,11 @@ export const discardPID = (draft, { pidType }) => {
     });
 
     try {
-      let response = await saveDraftMaybeUpdatingUrl(draft, config.service.drafts, false);
+      let response = await saveDraftMaybeUpdatingUrl(
+        draft,
+        config.service.drafts,
+        false
+      );
 
       const draftWithLinks = response.data;
       response = await config.service.drafts.discardPID(draftWithLinks.links, pidType);

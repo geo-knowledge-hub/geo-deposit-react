@@ -318,15 +318,15 @@ describe("RDMDepositRecordSerializer tests", () => {
             },
           ],
           geo_work_programme_activity: { id: "geo-programme-id" },
-          target_audiences: [{ "id": "Target Audience" }],
-          engagement_priorities: [ {"id": "Engagement priority"} ],
+          target_audiences: [{ id: "Target Audience" }],
+          engagement_priorities: [{ id: "Engagement priority" }],
           version: "v2.0.0",
         },
         revision_id: 1,
         ui: {
           publication_date_l10n: "Sep 28, 2020",
         },
-        updated: "2020-10-28 18:35:58.125222"
+        updated: "2020-10-28 18:35:58.125222",
       };
 
       const deserializedRecord = serializer.deserialize(record);
@@ -462,8 +462,8 @@ describe("RDMDepositRecordSerializer tests", () => {
           ],
           version: "v2.0.0",
           geo_work_programme_activity: "geo-programme-id",
-          target_audiences: [ "Target Audience" ],
-          engagement_priorities: [ "Engagement priority" ]
+          target_audiences: ["Target Audience"],
+          engagement_priorities: ["Engagement priority"],
         },
         ui: {
           publication_date_l10n: "Sep 28, 2020",
