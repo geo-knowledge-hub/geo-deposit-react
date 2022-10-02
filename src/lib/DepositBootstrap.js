@@ -52,6 +52,7 @@ class DepositBootstrapComponent extends Component {
   onFormSubmit = async (values, formikBag) => {
     const {
       saveAction,
+      saveActionWithoutChangeUrl,
       publishAction,
       submitReview,
       previewAction,
@@ -66,6 +67,9 @@ class DepositBootstrapComponent extends Component {
     switch (actionName) {
       case DepositFormSubmitActions.SAVE:
         actionFunc = saveAction;
+        break;
+      case DepositFormSubmitActions.SAVE_WITHOUT_CHANGE_URL:
+        actionFunc = saveActionWithoutChangeUrl
         break;
       case DepositFormSubmitActions.PUBLISH:
         actionFunc = publishAction;
@@ -178,6 +182,7 @@ const mapDispatchToProps = (dispatch) => ({
   submitReview: (values, { reviewComment }) =>
     dispatch(submitReview(values, { reviewComment })),
   saveAction: (values) => dispatch(save(values)),
+  saveActionWithoutChangeUrl: (values) => dispatch(save(values, false)),
   previewAction: (values) => dispatch(preview(values)),
   deleteAction: (values, { isDiscardingVersion }) =>
     dispatch(delete_(values, { isDiscardingVersion })),
