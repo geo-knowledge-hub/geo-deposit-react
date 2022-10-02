@@ -57,26 +57,35 @@ export class VocabularyField extends Field {
   }
 
   serialize(record) {
-    const _serialize = (value) => {
-      if (typeof value === "string") {
-        return { id: value };
-      }
-
-      return {
-        ...(value.id ? { id: value.id } : {}),
-        ...(value[this.labelField] && { [this.labelField]: value[this.labelField] }),
-      };
-    };
-
-    let fieldValue = _get(record, this.fieldpath, this.serializedDefault);
     let serializedValue = null;
+    let fieldValue = _get(record, this.fieldpath, this.serializedDefault);
+
     if (fieldValue !== null) {
-      serializedValue = Array.isArray(fieldValue)
-        ? fieldValue.map(_serialize)
-        : _serialize(fieldValue); // fieldValue is a string
+      if (Array.isArray(fieldValue)) {
+        serializedValue = fieldValue.map((value) => {
+            if (typeof value === 'string') {
+              return { id: value };
+            } else {
+              return {
+                ...(value.id ? { id: value.id } : {}),
+                [this.labelField]: value[this.labelField],
+              };
+            }
+          })
+      } else {
+        if (typeof fieldValue === 'object') {
+          serializedValue = { id: fieldValue.id }
+        } else {
+          serializedValue = { id: fieldValue }
+        }
+      }
     }
 
-    return _set(_cloneDeep(record), this.fieldpath, serializedValue || fieldValue);
+    return _set(
+      _cloneDeep(record),
+      this.fieldpath,
+      serializedValue || fieldValue
+    );
   }
 }
 

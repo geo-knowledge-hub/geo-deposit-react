@@ -27,6 +27,10 @@ import {
 } from "./fields";
 import { emptyDate, emptyIdentifier, emptyRelatedWork } from "./record";
 
+import {
+  LocationsFieldSerializer
+} from '@geo-knowledge-hub/invenio-geographic-components-react';
+
 export class DepositRecordSerializer {
   /* eslint-disable no-unused-vars */
   constructor(defaultLocale) {
@@ -245,6 +249,26 @@ export class RDMDepositRecordSerializer extends DepositRecordSerializer {
       deserializedDefault: [],
       serializedDefault: [],
       localeFields: ["title", "description"],
+    }),
+    // Locations field
+    locations: new LocationsFieldSerializer({
+      fieldpath: 'metadata.locations.features'
+    }),
+    // Custom fields
+    geo_work_programme_activity: new VocabularyField({
+        fieldpath: "metadata.geo_work_programme_activity",
+        deserializedDefault: "",
+        serializedDefault: ""
+    }),
+    target_audiences: new VocabularyField({
+        fieldpath: "metadata.target_audiences",
+        deserializedDefault: [],
+        serializedDefault: []
+    }),
+    engagement_priorities: new VocabularyField({
+        fieldpath: "metadata.engagement_priorities",
+        deserializedDefault: [],
+        serializedDefault: []
     }),
   };
 
