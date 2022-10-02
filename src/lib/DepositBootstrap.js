@@ -69,7 +69,7 @@ class DepositBootstrapComponent extends Component {
         actionFunc = saveAction;
         break;
       case DepositFormSubmitActions.SAVE_WITHOUT_CHANGE_URL:
-        actionFunc = saveActionWithoutChangeUrl
+        actionFunc = saveActionWithoutChangeUrl;
         break;
       case DepositFormSubmitActions.PUBLISH:
         actionFunc = publishAction;
@@ -150,6 +150,7 @@ DepositBootstrapComponent.propTypes = {
   record: PropTypes.object.isRequired,
   children: PropTypes.node,
   saveAction: PropTypes.func.isRequired,
+  saveActionWithoutChangeUrl: PropTypes.func.isRequired,
   publishAction: PropTypes.func.isRequired,
   submitReview: PropTypes.func.isRequired,
   previewAction: PropTypes.func.isRequired,

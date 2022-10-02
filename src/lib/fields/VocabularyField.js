@@ -63,29 +63,25 @@ export class VocabularyField extends Field {
     if (fieldValue !== null) {
       if (Array.isArray(fieldValue)) {
         serializedValue = fieldValue.map((value) => {
-            if (typeof value === 'string') {
-              return { id: value };
-            } else {
-              return {
-                ...(value.id ? { id: value.id } : {}),
-                [this.labelField]: value[this.labelField],
-              };
-            }
-          })
+          if (typeof value === "string") {
+            return { id: value };
+          } else {
+            return {
+              ...(value.id ? { id: value.id } : {}),
+              [this.labelField]: value[this.labelField],
+            };
+          }
+        });
       } else {
-        if (typeof fieldValue === 'object') {
-          serializedValue = { id: fieldValue.id }
+        if (typeof fieldValue === "object") {
+          serializedValue = { id: fieldValue.id };
         } else {
-          serializedValue = { id: fieldValue }
+          serializedValue = { id: fieldValue };
         }
       }
     }
 
-    return _set(
-      _cloneDeep(record),
-      this.fieldpath,
-      serializedValue || fieldValue
-    );
+    return _set(_cloneDeep(record), this.fieldpath, serializedValue || fieldValue);
   }
 }
 
