@@ -14,13 +14,13 @@ import {
   FILE_IMPORT_SUCCESS,
   FILE_UPLOAD_SAVE_DRAFT_FAILED,
 } from "../types";
-import { saveDraftWithUrlUpdate } from "./deposit";
+import { saveDraftMaybeUpdatingUrl } from "./deposit";
 
 export const uploadFiles = (draft, files) => {
   return async (dispatch, _, config) => {
     let response;
     try {
-      response = await saveDraftWithUrlUpdate(draft, config.service.drafts);
+      response = await saveDraftMaybeUpdatingUrl(draft, config.service.drafts);
       // update state with created draft
       dispatch({
         type: DRAFT_FETCHED,

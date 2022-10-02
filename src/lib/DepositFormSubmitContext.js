@@ -9,6 +9,7 @@ import React from "react";
 
 export const DepositFormSubmitActions = {
   SAVE: "SAVE",
+  SAVE_WITHOUT_CHANGE_URL: "SAVE_WITHOUT_CHANGE_URL",
   PUBLISH: "PUBLISH",
   PUBLISH_WITHOUT_COMMUNITY: "PUBLISH_WITHOUT_COMMUNITY",
   PREVIEW: "PREVIEW",
