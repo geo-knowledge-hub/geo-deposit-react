@@ -524,9 +524,9 @@ export class CreatibutorsModal extends Component {
                       _get(values, typeFieldPath) === CREATIBUTOR_TYPE.PERSON)) && (
                     <div>
                       <TextField
-                          label={i18next.t("Email")}
-                          placeholder={i18next.t("Email")}
-                          fieldPath={emailFieldPath}
+                        label={i18next.t("Email")}
+                        placeholder={i18next.t("Email")}
+                        fieldPath={emailFieldPath}
                       />
                       <AffiliationsField
                         fieldPath={affiliationsFieldPath}

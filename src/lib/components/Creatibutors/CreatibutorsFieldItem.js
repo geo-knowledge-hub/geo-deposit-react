@@ -10,7 +10,7 @@ import { i18next } from "@translations/i18next";
 import _get from "lodash/get";
 import React from "react";
 import { useDrag, useDrop } from "react-dnd";
-import { Button, Label, List, Ref } from "semantic-ui-react";
+import { Button, Label, List, Ref, Icon } from "semantic-ui-react";
 import { CreatibutorsModal } from "./CreatibutorsModal";
 import PropTypes from "prop-types";
 
@@ -107,6 +107,9 @@ export const CreatibutorsFieldItem = ({
           <List.Content>
             <List.Description>
               <span className="creatibutor">
+                {_get(initialCreatibutor, "person_or_org.email", null) && (
+                  <Icon name="envelope outline" />
+                )}
                 {_get(initialCreatibutor, "person_or_org.identifiers", []).some(
                   (identifier) => identifier.scheme === "orcid"
                 ) && (
