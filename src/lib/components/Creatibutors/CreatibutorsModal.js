@@ -59,6 +59,7 @@ export class CreatibutorsModal extends Component {
   CreatorSchema = Yup.object({
     person_or_org: Yup.object({
       type: Yup.string(),
+      email: Yup.string().email(i18next.t("Invalid email")),
       family_name: Yup.string().when("type", (type, schema) => {
         if (type === CREATIBUTOR_TYPE.PERSON && this.isCreator()) {
           return schema.required(i18next.t("Family name is a required field."));
@@ -208,7 +209,7 @@ export class CreatibutorsModal extends Component {
     } else {
       return (
         <>
-          {identifier.scehme}: {identifier.identifier}
+          {identifier.scheme}: {identifier.identifier}
         </>
       );
     }
@@ -371,6 +372,7 @@ export class CreatibutorsModal extends Component {
         {({ values, resetForm, handleSubmit }) => {
           const personOrOrgPath = `person_or_org`;
           const typeFieldPath = `${personOrOrgPath}.type`;
+          const emailFieldPath = `${personOrOrgPath}.email`;
           const familyNameFieldPath = `${personOrOrgPath}.family_name`;
           const givenNameFieldPath = `${personOrOrgPath}.given_name`;
           const nameFieldPath = `${personOrOrgPath}.name`;
@@ -521,6 +523,11 @@ export class CreatibutorsModal extends Component {
                     (showPersonForm &&
                       _get(values, typeFieldPath) === CREATIBUTOR_TYPE.PERSON)) && (
                     <div>
+                      <TextField
+                        label={i18next.t("Email")}
+                        placeholder={i18next.t("Email")}
+                        fieldPath={emailFieldPath}
+                      />
                       <AffiliationsField
                         fieldPath={affiliationsFieldPath}
                         selectRef={this.affiliationsRef}
