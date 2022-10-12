@@ -44,55 +44,69 @@ export class RelatedWorksField extends Component {
             const fieldPathPrefix = `${fieldPath}.${indexPath}`;
 
             return (
-              <GroupField optimized>
-                <SelectField
-                  clearable
-                  fieldPath={`${fieldPathPrefix}.relation_type`}
-                  label={i18next.t("Relation")}
-                  optimized
-                  options={options.relations}
-                  placeholder={i18next.t("Select relation...")}
-                  required
-                  width={3}
-                />
+              <div className={"invenio-group-field-multiple-line"}>
+                <GroupField optimized>
+                  <TextField
+                    fieldPath={`${fieldPathPrefix}.title`}
+                    label={i18next.t("Title")}
+                    width={6}
+                  />
+                  <TextField
+                    fieldPath={`${fieldPathPrefix}.description`}
+                    label={i18next.t("Description")}
+                    width={10}
+                  />
 
-                <TextField
-                  fieldPath={`${fieldPathPrefix}.identifier`}
-                  label={i18next.t("Identifier")}
-                  required
-                  width={4}
-                />
+                  <SelectField
+                    clearable
+                    fieldPath={`${fieldPathPrefix}.relation_type`}
+                    label={i18next.t("Relation")}
+                    optimized
+                    options={options.relations}
+                    placeholder={i18next.t("Select relation...")}
+                    required
+                    width={4}
+                  />
 
-                <SelectField
-                  clearable
-                  fieldPath={`${fieldPathPrefix}.scheme`}
-                  label={i18next.t("Scheme")}
-                  optimized
-                  options={options.scheme}
-                  required
-                  width={2}
-                />
+                  <TextField
+                    fieldPath={`${fieldPathPrefix}.identifier`}
+                    label={i18next.t("Identifier")}
+                    required
+                    width={4}
+                  />
 
-                <ResourceTypeField
-                  clearable
-                  fieldPath={`${fieldPathPrefix}.resource_type`}
-                  labelIcon="" // Otherwise breaks alignment
-                  options={options.resource_type}
-                  width={7}
-                  labelclassname="small field-label-class"
-                />
+                  <SelectField
+                    clearable
+                    fieldPath={`${fieldPathPrefix}.scheme`}
+                    label={i18next.t("Scheme")}
+                    optimized
+                    options={options.scheme}
+                    required
+                    width={2}
+                  />
 
-                <Form.Field>
-                  <Button
-                    aria-label={i18next.t("Remove field")}
-                    className="close-btn"
-                    icon
-                    onClick={() => arrayHelpers.remove(indexPath)}
-                  >
-                    <Icon name="close" />
-                  </Button>
-                </Form.Field>
-              </GroupField>
+                  <ResourceTypeField
+                    clearable
+                    fieldPath={`${fieldPathPrefix}.resource_type`}
+                    labelIcon="" // Otherwise breaks alignment
+                    options={options.resource_type}
+                    width={5}
+                    labelclassname="small field-label-class"
+                  />
+
+                  <Form.Field>
+                    <Button
+                      aria-label={i18next.t("Remove field")}
+                      className="close-btn"
+                      icon
+                      size={"small"}
+                      onClick={() => arrayHelpers.remove(indexPath)}
+                    >
+                      <Icon name="close" />
+                    </Button>
+                  </Form.Field>
+                </GroupField>
+              </div>
             );
           }}
         </ArrayField>
