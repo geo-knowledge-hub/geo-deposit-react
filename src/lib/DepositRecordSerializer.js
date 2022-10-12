@@ -200,6 +200,12 @@ export class RDMDepositRecordSerializer extends DepositRecordSerializer {
     related_identifiers: new SchemaField({
       fieldpath: "metadata.related_identifiers",
       schema: {
+        title: new Field({
+          fieldpath: "title",
+        }),
+        description: new Field({
+          fieldpath: "description",
+        }),
         scheme: new Field({
           fieldpath: "scheme",
         }),
