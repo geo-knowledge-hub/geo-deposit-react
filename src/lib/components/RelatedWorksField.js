@@ -44,7 +44,7 @@ export class RelatedWorksField extends Component {
             const fieldPathPrefix = `${fieldPath}.${indexPath}`;
 
             return (
-              <div className={"invenio-group-field-multiple-line"}>
+              <div className="invenio-group-field-multiple-line">
                 <GroupField optimized>
                   <TextField
                     fieldPath={`${fieldPathPrefix}.title`}
@@ -99,7 +99,7 @@ export class RelatedWorksField extends Component {
                       aria-label={i18next.t("Remove field")}
                       className="close-btn"
                       icon
-                      size={"small"}
+                      size="small"
                       onClick={() => arrayHelpers.remove(indexPath)}
                     >
                       <Icon name="close" />
