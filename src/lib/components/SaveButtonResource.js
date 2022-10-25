@@ -69,7 +69,7 @@ SaveButtonResourceComponent.propTypes = {
 
 SaveButtonResourceComponent.defaultProps = {
   actionState: undefined,
-  confirmOperation: undefined
+  confirmOperation: undefined,
 };
 
 const mapStateToProps = (state) => ({
