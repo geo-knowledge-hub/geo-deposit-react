@@ -274,6 +274,9 @@ export class RDMDepositRecordSerializer extends DepositRecordSerializer {
       deserializedDefault: [],
       serializedDefault: [],
     }),
+    relationship: new Field({
+      fieldpath: "relationship",
+    }),
   };
 
   /**
@@ -327,6 +330,7 @@ export class RDMDepositRecordSerializer extends DepositRecordSerializer {
       "status",
       "pids",
       "ui",
+      "relationship",
     ]);
 
     // FIXME: move logic in a more sophisticated PIDField that allows empty values
@@ -394,6 +398,7 @@ export class RDMDepositRecordSerializer extends DepositRecordSerializer {
       "files",
       "pids",
       "parent",
+      "relationship",
     ]);
 
     // FIXME: move logic in a more sophisticated PIDField that allows empty values

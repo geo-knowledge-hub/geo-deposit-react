@@ -247,7 +247,7 @@ export const preview = (draft) => {
  * This function is different from the save/publish above because this thunk
  * is independent of form submission.
  */
-export const delete_ = () => {
+export const delete_ = (updateUrl = true) => {
   return async (dispatch, getState, config) => {
     dispatch({
       type: DRAFT_DELETE_STARTED,
@@ -258,8 +258,10 @@ export const delete_ = () => {
       await config.service.drafts.delete(draft.links);
 
       // redirect to the the uploads page after deleting/discarding a draft
-      const redirectURL = "/me/uploads";
-      window.location.replace(redirectURL);
+      if (updateUrl) {
+        const redirectURL = "/me/uploads";
+        window.location.replace(redirectURL);
+      }
     } catch (error) {
       dispatch({
         type: DRAFT_DELETE_FAILED,

@@ -83,8 +83,8 @@ function getSelectedCommunityMetadata(record, selectedCommunity) {
 
       // record should be expanded
       return alreadyPublished
-        ? record.expanded.parent.communities.default
-        : record.expanded.parent.review.receiver;
+        ? record?.expanded?.parent?.communities?.default
+        : record?.expanded?.parent?.review?.receiver;
     }
     case null:
       // when value is `null`, the selected community was deselected
