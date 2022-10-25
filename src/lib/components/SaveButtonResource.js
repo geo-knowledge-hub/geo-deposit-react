@@ -2,6 +2,7 @@
 // Copyright (C) 2020-2022 CERN.
 // Copyright (C) 2020-2022 Northwestern University.
 // Copyright (C) 2022 Graz University of Technology.
+// Copyright (C) 2022 Group on Earth Observations.
 //
 // React-Invenio-Deposit is free software; you can redistribute it and/or modify it
 // under the terms of the MIT License; see LICENSE file for more details.
@@ -13,14 +14,14 @@ import { Button } from "semantic-ui-react";
 import {
   DepositFormSubmitActions,
   DepositFormSubmitContext,
-} from "../../DepositFormSubmitContext";
-import { DRAFT_SAVE_STARTED } from "../../state/types";
-import { scrollTop } from "../../utils";
+} from "../DepositFormSubmitContext";
+import { DRAFT_SAVE_STARTED } from "../state/types";
+import { scrollTop } from "../utils";
 import _omit from "lodash/omit";
 import { connect as connectFormik } from "formik";
 import PropTypes from "prop-types";
 
-export class SaveRecordButtonComponent extends Component {
+export class SaveButtonResourceComponent extends Component {
   static contextType = DepositFormSubmitContext;
 
   handleSave = (event) => {
@@ -34,7 +35,7 @@ export class SaveRecordButtonComponent extends Component {
   };
 
   render() {
-    const { actionState, formik, ...ui } = this.props;
+    const { actionState, formik, confirmOperation, ...ui } = this.props;
     const { isSubmitting } = formik;
 
     const uiProps = _omit(ui, ["dispatch"]);
@@ -43,7 +44,13 @@ export class SaveRecordButtonComponent extends Component {
       <Button
         name="save"
         disabled={isSubmitting}
-        onClick={(event) => this.handleSave(event)}
+        onClick={(event) => {
+          if (confirmOperation) {
+            confirmOperation(() => this.handleSave(event));
+          } else {
+            this.handleSave(event);
+          }
+        }}
         icon="save"
         loading={isSubmitting && actionState === DRAFT_SAVE_STARTED}
         labelPosition="left"
@@ -54,20 +61,22 @@ export class SaveRecordButtonComponent extends Component {
   }
 }
 
-SaveRecordButtonComponent.propTypes = {
+SaveButtonResourceComponent.propTypes = {
   formik: PropTypes.object.isRequired,
   actionState: PropTypes.string,
+  confirmOperation: PropTypes.func,
 };
 
-SaveRecordButtonComponent.defaultProps = {
+SaveButtonResourceComponent.defaultProps = {
   actionState: undefined,
+  confirmOperation: undefined,
 };
 
 const mapStateToProps = (state) => ({
   actionState: state.deposit.actionState,
 });
 
-export const SaveRecordButton = connect(
+export const SaveButtonResource = connect(
   mapStateToProps,
   null
-)(connectFormik(SaveRecordButtonComponent));
+)(connectFormik(SaveButtonResourceComponent));

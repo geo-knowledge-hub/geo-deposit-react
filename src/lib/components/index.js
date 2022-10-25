@@ -1,11 +1,14 @@
 // This file is part of React-Invenio-Deposit
 // Copyright (C) 2020-2022 CERN.
 // Copyright (C) 2020-2022 Northwestern University.
+// Copyright (C) 2022 Group on Earth Observations.
 //
 // React-Invenio-Deposit is free software; you can redistribute it and/or modify it
 // under the terms of the MIT License; see LICENSE file for more details.
 
+export * from "./Access";
 export { AccessRightField } from "./AccessRightField";
+export { AccessRightFieldResource } from "./AccessRightFieldResource";
 export { AdditionalTitlesField } from "./AdditionalTitlesField";
 export { AffiliationsField } from "./AffiliationsField";
 export { ComingSoonField } from "./ComingSoonField";
@@ -17,6 +20,8 @@ export { DeleteButton } from "./DeleteButton";
 export { DepositFormTitle } from "./DepositFormTitle";
 export { DepositStatusBox } from "./DepositStatus";
 export { DescriptionsField } from "./DescriptionsField";
+export { EmbargoDateField } from "./Access/EmbargoDateField";
+export { EmbargoCheckboxField } from "./Access/EmbargoCheckboxField";
 export { FileUploader, humanReadableBytes } from "./FileUploader";
 export { FormFeedback } from "./FormFeedback";
 export { FundingField } from "./Funding";
@@ -31,7 +36,7 @@ export { PublisherField } from "./PublisherField";
 export { RelatedWorksField } from "./RelatedWorksField";
 export { ResourceTypeField } from "./ResourceTypeField";
 export { SaveButton } from "./SaveButton";
+export { SaveButtonResource } from "./SaveButtonResource";
 export { SubjectsField } from "./SubjectsField";
 export { TitlesField } from "./TitlesField";
 export { VersionField } from "./VersionField";
-export { SaveRecordButton } from "./Records";
