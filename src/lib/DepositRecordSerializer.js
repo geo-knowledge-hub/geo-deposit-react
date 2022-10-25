@@ -200,6 +200,12 @@ export class RDMDepositRecordSerializer extends DepositRecordSerializer {
     related_identifiers: new SchemaField({
       fieldpath: "metadata.related_identifiers",
       schema: {
+        title: new Field({
+          fieldpath: "title",
+        }),
+        description: new Field({
+          fieldpath: "description",
+        }),
         scheme: new Field({
           fieldpath: "scheme",
         }),
@@ -268,6 +274,9 @@ export class RDMDepositRecordSerializer extends DepositRecordSerializer {
       deserializedDefault: [],
       serializedDefault: [],
     }),
+    relationship: new Field({
+      fieldpath: "relationship",
+    }),
   };
 
   /**
@@ -321,6 +330,7 @@ export class RDMDepositRecordSerializer extends DepositRecordSerializer {
       "status",
       "pids",
       "ui",
+      "relationship",
     ]);
 
     // FIXME: move logic in a more sophisticated PIDField that allows empty values
@@ -388,6 +398,7 @@ export class RDMDepositRecordSerializer extends DepositRecordSerializer {
       "files",
       "pids",
       "parent",
+      "relationship",
     ]);
 
     // FIXME: move logic in a more sophisticated PIDField that allows empty values

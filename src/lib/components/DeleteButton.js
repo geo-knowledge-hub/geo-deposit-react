@@ -62,11 +62,17 @@ export class DeleteButtonComponent extends Component {
   closeConfirmModal = () => this.setState({ modalOpen: false });
 
   handleDelete = async (event) => {
-    const { isPublished, isVersion, formik } = this.props;
+    const { isPublished, isVersion, formik, updateUrlAfterDelete } = this.props;
     const { handleSubmit } = formik;
     const { setSubmitContext } = this.context;
 
-    setSubmitContext(DepositFormSubmitActions.DELETE, {
+    // Preparing the context to do the update.
+    let contextActionToBeUsed = DepositFormSubmitActions.DELETE;
+    if (!updateUrlAfterDelete) {
+      contextActionToBeUsed = DepositFormSubmitActions.DELETE_WITHOUT_CHANGE_URL;
+    }
+
+    setSubmitContext(contextActionToBeUsed, {
       isDiscardingVersion: isPublished || isVersion,
     });
     handleSubmit(event);
@@ -138,6 +144,7 @@ DeleteButtonComponent.propTypes = {
   isVersion: PropTypes.bool,
   actionState: PropTypes.string,
   formik: PropTypes.object.isRequired,
+  updateUrlAfterDelete: PropTypes.bool,
 };
 
 DeleteButtonComponent.defaultProps = {
@@ -145,6 +152,7 @@ DeleteButtonComponent.defaultProps = {
   isPublished: false,
   isVersion: false,
   actionState: undefined,
+  updateUrlAfterDelete: true,
 };
 
 const mapStateToProps = (state) => ({

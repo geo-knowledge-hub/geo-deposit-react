@@ -57,6 +57,7 @@ class DepositBootstrapComponent extends Component {
       submitReview,
       previewAction,
       deleteAction,
+      deleteActionWithoutChangeUrl,
       reservePIDAction,
       discardPIDAction,
     } = this.props;
@@ -87,6 +88,10 @@ class DepositBootstrapComponent extends Component {
         break;
       case DepositFormSubmitActions.DELETE:
         actionFunc = deleteAction;
+        params["isDiscardingVersion"] = extra["isDiscardingVersion"];
+        break;
+      case DepositFormSubmitActions.DELETE_WITHOUT_CHANGE_URL:
+        actionFunc = deleteActionWithoutChangeUrl;
         params["isDiscardingVersion"] = extra["isDiscardingVersion"];
         break;
       case DepositFormSubmitActions.RESERVE_PID:
@@ -155,6 +160,7 @@ DepositBootstrapComponent.propTypes = {
   submitReview: PropTypes.func.isRequired,
   previewAction: PropTypes.func.isRequired,
   deleteAction: PropTypes.func.isRequired,
+  deleteActionWithoutChangeUrl: PropTypes.func.isRequired,
   reservePIDAction: PropTypes.func.isRequired,
   discardPIDAction: PropTypes.func.isRequired,
   fileUploadOngoing: PropTypes.bool,
@@ -187,6 +193,8 @@ const mapDispatchToProps = (dispatch) => ({
   previewAction: (values) => dispatch(preview(values)),
   deleteAction: (values, { isDiscardingVersion }) =>
     dispatch(delete_(values, { isDiscardingVersion })),
+  deleteActionWithoutChangeUrl: (values, { isDiscardingVersion }) =>
+    dispatch(delete_(false, values, { isDiscardingVersion })),
   reservePIDAction: (values, { pidType }) => dispatch(reservePID(values, { pidType })),
   discardPIDAction: (values, { pidType }) => dispatch(discardPID(values, { pidType })),
 });
