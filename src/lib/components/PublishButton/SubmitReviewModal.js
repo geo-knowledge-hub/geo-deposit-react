@@ -22,8 +22,14 @@ export class SubmitReviewModal extends Component {
   });
 
   render() {
-    const { initialReviewComment, isConfirmModalOpen, community, onClose, onSubmit } =
-      this.props;
+    const {
+      initialReviewComment,
+      isConfirmModalOpen,
+      community,
+      onClose,
+      onSubmit,
+      publishModalExtraContent,
+    } = this.props;
     const communityTitle = community.metadata.title;
     return (
       <Formik
@@ -72,7 +78,6 @@ export class SubmitReviewModal extends Component {
                             communityTitle,
                           }}
                           components={{ bold: <b /> }}
-                          shouldUnescape
                         />
                       }
                       checked={_get(values, "acceptAccessToRecord") === "checked"}
@@ -120,6 +125,11 @@ export class SubmitReviewModal extends Component {
                     fieldPath="reviewComment"
                     label="Message to curators (optional)"
                   />
+                  {publishModalExtraContent && (
+                    <div
+                      dangerouslySetInnerHTML={{ __html: publishModalExtraContent }}
+                    />
+                  )}
                 </Form>
               </Modal.Content>
               <Modal.Actions>
@@ -149,8 +159,10 @@ SubmitReviewModal.propTypes = {
   onClose: PropTypes.func.isRequired,
   onSubmit: PropTypes.func.isRequired,
   initialReviewComment: PropTypes.string,
+  publishModalExtraContent: PropTypes.string,
 };
 
 SubmitReviewModal.defaultProps = {
   initialReviewComment: "",
+  publishModalExtraContent: "",
 };

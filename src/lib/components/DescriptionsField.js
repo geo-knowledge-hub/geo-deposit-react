@@ -25,7 +25,12 @@ export class DescriptionsField extends Component {
           label={<FieldLabel htmlFor={fieldPath} icon={labelIcon} label={label} />}
           optimized
         />
-        <AdditionalDescriptionsField recordUI={recordUI} options={options} />
+        <AdditionalDescriptionsField
+          recordUI={recordUI}
+          options={options}
+          editorConfig={editorConfig}
+          fieldPath="metadata.additional_descriptions"
+        />
       </>
     );
   }
@@ -41,8 +46,6 @@ DescriptionsField.propTypes = {
 };
 
 DescriptionsField.defaultProps = {
-  // eslint-disable-next-line react/default-props-match-prop-types
-  fieldPath: "metadata.description",
   label: i18next.t("Description"),
   labelIcon: "pencil",
   editorConfig: undefined,
