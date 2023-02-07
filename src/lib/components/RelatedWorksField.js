@@ -24,7 +24,8 @@ import { i18next } from "@translations/i18next";
 
 export class RelatedWorksField extends Component {
   render() {
-    const { fieldPath, label, labelIcon, required, options } = this.props;
+    const { fieldPath, label, labelIcon, required, options, showEmptyValue } =
+      this.props;
 
     return (
       <>
@@ -39,6 +40,7 @@ export class RelatedWorksField extends Component {
           fieldPath={fieldPath}
           label={<FieldLabel htmlFor={fieldPath} icon={labelIcon} label={label} />}
           required={required}
+          showEmptyValue={showEmptyValue}
         >
           {({ arrayHelpers, indexPath }) => {
             const fieldPathPrefix = `${fieldPath}.${indexPath}`;
@@ -121,12 +123,12 @@ RelatedWorksField.propTypes = {
   labelIcon: PropTypes.string,
   required: PropTypes.bool,
   options: PropTypes.object.isRequired,
+  showEmptyValue: PropTypes.bool,
 };
 
 RelatedWorksField.defaultProps = {
-  // eslint-disable-next-line react/default-props-match-prop-types
-  fieldPath: "metadata.related_identifiers",
   label: i18next.t("Related works"),
   labelIcon: "barcode",
   required: undefined,
+  showEmptyValue: false,
 };

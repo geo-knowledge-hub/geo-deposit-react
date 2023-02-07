@@ -7,7 +7,10 @@ on:
   push:
     branches: [ master ]
   pull_request:
-    branches: [ master ]
+    branches:
+      - master
+      - 'maint-**'
+      - 'feature/**'
 
 jobs:
   Tests:
@@ -20,7 +23,7 @@ jobs:
 
     steps:
     - name: Checkout
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
 
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
@@ -43,3 +46,6 @@ jobs:
   
     - name: Test
       run: npm test
+
+    - name: Test build
+      run: npm run build

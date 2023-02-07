@@ -61,7 +61,7 @@ describe("RDMDepositRecordSerializer tests", () => {
 
         const serializedRecord = serializer.serialize(record);
 
-        expect(serializedRecord).toEqual({ metadata: {} });
+        expect(serializedRecord).toEqual({ metadata: {}, custom_fields: {}, pids: {} });
       });
     });
 
@@ -92,7 +92,7 @@ describe("RDMDepositRecordSerializer tests", () => {
 
         const serializedRecord = serializer.serialize(record);
 
-        expect(serializedRecord).toEqual({ metadata: {} });
+        expect(serializedRecord).toEqual({ metadata: {}, custom_fields: {}, pids: {} });
       });
     });
 
@@ -132,7 +132,7 @@ describe("RDMDepositRecordSerializer tests", () => {
 
         const serializedRecord = serializer.serialize(record);
 
-        expect(serializedRecord).toEqual({ metadata: {} });
+        expect(serializedRecord).toEqual({ metadata: {}, custom_fields: {}, pids: {} });
       });
     });
   });
@@ -155,10 +155,10 @@ describe("RDMDepositRecordSerializer tests", () => {
           contributors: [],
           resource_type: "",
           publication_date: "",
-          dates: [{ ...emptyDate, __key: 0 }],
+          dates: [],
           languages: [],
-          identifiers: [{ ...emptyIdentifier, __key: 0 }],
-          related_identifiers: [{ ...emptyRelatedWork, __key: 0 }],
+          identifiers: [],
+          related_identifiers: [],
           subjects: [],
           rights: [],
           funding: [],
