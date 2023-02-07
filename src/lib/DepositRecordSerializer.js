@@ -27,8 +27,6 @@ import {
   VocabularyField,
 } from "./fields";
 
-import { emptyDate, emptyIdentifier, emptyRelatedWork } from "./record";
-
 import { LocationsFieldSerializer } from "@geo-knowledge-hub/invenio-geographic-components-react";
 
 export class DepositRecordSerializer {
