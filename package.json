@@ -89,8 +89,7 @@
     "semantic-ui-css": "^2.4.0",
     "semantic-ui-react": "^2.1.0",
     "yup": "^0.32.11",
-    "query-string": "^7.1.1",
-    "@geo-knowledge-hub/invenio-geographic-components-react": "^0.2.2"
+    "query-string": "^7.1.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.5.0",
@@ -100,6 +99,7 @@
     "@ckeditor/ckeditor5-build-classic": "^16.0.0",
     "@ckeditor/ckeditor5-react": "^2.1.0",
     "@geo-knowledge-hub/invenio-geographic-components-react": "^0.2.2",
+    "@geo-knowledge-hub/geo-components-react": "^0.4.6",
     "@geoman-io/leaflet-geoman-free": "^2.13.0",
     "@inveniosoftware/eslint-config-invenio": "^2.0.0",
     "@mapbox/geojsonhint": "^3.0.1",
@@ -159,7 +159,15 @@
     "rollup-plugin-url": "^3.0.0",
     "semantic-ui-css": "^2.4.0",
     "semantic-ui-react": "^2.1.0",
-    "yup": "^0.32.11"
+    "yup": "^0.32.11",
+    "@emotion/css": "^11.9.0",
+    "@emotion/react": "^11.9.0",
+    "@emotion/styled": "^11.8.1",
+    "react-lazy-load-image-component": "^1.5.4",
+    "natsort": "^2.0.3",
+    "minisearch": "^4.0.3",
+    "react-minisearch": "^5.0.0-beta1",
+    "react-table": "^7.7.0"
   },
   "author": {
     "name": "CERN",

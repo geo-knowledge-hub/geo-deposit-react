@@ -8,10 +8,12 @@
 
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import { FieldLabel, GroupField, RemoteSelectField } from "react-invenio-forms";
+import { FieldLabel, GroupField } from "react-invenio-forms";
 import { Form } from "semantic-ui-react";
 import { Field, getIn } from "formik";
 import { i18next } from "@translations/i18next";
+
+import { RemoteSelectField } from "@geo-knowledge-hub/geo-components-react";
 
 export class SubjectsField extends Component {
   state = {
@@ -47,6 +49,7 @@ export class SubjectsField extends Component {
       placeholder,
       clearable,
       limitToOptions,
+      initialSuggestions
     } = this.props;
     return (
       <GroupField className="main-group-field">
@@ -77,7 +80,7 @@ export class SubjectsField extends Component {
               <RemoteSelectField
                 clearable={clearable}
                 fieldPath={fieldPath}
-                initialSuggestions={getIn(values, fieldPath, [])}
+                initialSuggestions={initialSuggestions}
                 multiple={multiple}
                 noQueryMessage={i18next.t("Search or create subjects...")}
                 placeholder={placeholder}
