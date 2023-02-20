@@ -89,7 +89,9 @@
     "semantic-ui-css": "^2.4.0",
     "semantic-ui-react": "^2.1.0",
     "yup": "^0.32.11",
-    "query-string": "^7.1.1"
+    "query-string": "^7.1.1",
+    "@geo-knowledge-hub/invenio-geographic-components-react": "^0.2.2",
+    "@geo-knowledge-hub/geo-components-react": "^0.4.7"
   },
   "devDependencies": {
     "@babel/cli": "^7.5.0",
@@ -99,7 +101,7 @@
     "@ckeditor/ckeditor5-build-classic": "^16.0.0",
     "@ckeditor/ckeditor5-react": "^2.1.0",
     "@geo-knowledge-hub/invenio-geographic-components-react": "^0.2.2",
-    "@geo-knowledge-hub/geo-components-react": "^0.4.6",
+    "@geo-knowledge-hub/geo-components-react": "^0.4.7",
     "@geoman-io/leaflet-geoman-free": "^2.13.0",
     "@inveniosoftware/eslint-config-invenio": "^2.0.0",
     "@mapbox/geojsonhint": "^3.0.1",
