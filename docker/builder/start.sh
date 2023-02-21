@@ -57,7 +57,7 @@ echo @geo-knowledge-hub:registry=${VERDACCIO_DOCKER_REGISTRY} > ~/.npmrc
 
 # extract the dependencies from the `geo-knowledge-hub`
 # note: `@geo-knowledge-hub` is the scope defined to the `geo-knowledge-hub` packages
-JAVASCRIPT_DEPENDENCIES_VERSION=`cat package.json | grep -e @geo-knowledge-hub/ | tail -n 2`
+JAVASCRIPT_DEPENDENCIES_VERSION=`cat package.json | grep -e @geo-knowledge-hub/ | tail -n 4 | head -n 2`
 JAVASCRIPT_DEPENDENCIES_ARRAY=(${JAVASCRIPT_DEPENDENCIES_VERSION//,/ })
 
 INTEGRITY_REGULARIZER=${PWD}/docker/builder/services/integrity-regularizer/app.py
