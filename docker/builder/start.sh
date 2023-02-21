@@ -57,8 +57,10 @@ echo @geo-knowledge-hub:registry=${VERDACCIO_DOCKER_REGISTRY} > ~/.npmrc
 
 # extract the dependencies from the `geo-knowledge-hub`
 # note: `@geo-knowledge-hub` is the scope defined to the `geo-knowledge-hub` packages
-JAVASCRIPT_DEPENDENCIES_VERSION=`cat package.json | grep -e @geo-knowledge-hub/ | tail -n 2`
+JAVASCRIPT_DEPENDENCIES_VERSION=`cat package.json | grep -e @geo-knowledge-hub/ | tail -n 4 | head -n 2`
 JAVASCRIPT_DEPENDENCIES_ARRAY=(${JAVASCRIPT_DEPENDENCIES_VERSION//,/ })
+
+INTEGRITY_REGULARIZER=${PWD}/docker/builder/services/integrity-regularizer/app.py
 
 # creating a build temporary file
 mkdir build-tmp-dir
@@ -81,20 +83,24 @@ do
   PACKAGE_VERSION=master
 
   if [[ ! -d "$PACKAGE_NAME" ]]; then
-
       git clone --branch $PACKAGE_VERSION $GEO_KNOWLEDGE_HUB_ORGANIZATION_URL/$PACKAGE_NAME $PACKAGE_NAME
       cd $PACKAGE_NAME
+
+      # Regularizing integrity from GitHub dependencies.
+      # Used to solve the checksum difference error when multiple environments are used.
+      # (Example where the issue is discussed: https://github.com/npm/cli/issues/2846)
+      python3 ${INTEGRITY_REGULARIZER}
 
       npm install
       npm run build
       npm publish --registry $VERDACCIO_LOCAL_REGISTRY
 
-      cd ../..
-
-      npm install @geo-knowledge-hub/$PACKAGE_NAME
-      cd build-tmp-dir
+      cd ..
   fi
 done
 
 cd ..
 rm -rf build-tmp-dir
+
+# Regularizing integrity from GitHub dependencies.
+python3 ${INTEGRITY_REGULARIZER}
