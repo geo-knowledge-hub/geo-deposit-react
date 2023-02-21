@@ -129,6 +129,7 @@ SubjectsField.propTypes = {
   multiple: PropTypes.bool,
   clearable: PropTypes.bool,
   placeholder: PropTypes.string,
+  initialSuggestions: PropTypes.array,
 };
 
 SubjectsField.defaultProps = {
@@ -138,4 +139,5 @@ SubjectsField.defaultProps = {
   multiple: true,
   clearable: true,
   placeholder: i18next.t("Search for a subject by name"),
+  initialSuggestions: [],
 };
