@@ -49,7 +49,7 @@ export class SubjectsField extends Component {
       placeholder,
       clearable,
       limitToOptions,
-      initialSuggestions
+      initialSuggestions,
     } = this.props;
     return (
       <GroupField className="main-group-field">
