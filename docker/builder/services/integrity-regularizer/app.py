@@ -29,7 +29,7 @@ dependencies = package_json["dependencies"]
 # 3. Removing dependencies from GEO Knowledge Hub packages installed from GitHub
 #
 for depkey in dependencies.keys():
-    if "@geo-knowledge-hub" in depkey:
+    if "@geo-knowledge-hub" in depkey and "integrity" in dependencies[depkey]:
         del dependencies[depkey]["integrity"]
 
 #

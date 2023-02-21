@@ -86,21 +86,18 @@ do
       git clone --branch $PACKAGE_VERSION $GEO_KNOWLEDGE_HUB_ORGANIZATION_URL/$PACKAGE_NAME $PACKAGE_NAME
       cd $PACKAGE_NAME
 
-      # Regularizing integrity from GitHub dependencies.
-      # Used to solve the checksum difference error when multiple environments are used.
-      # (Example where the issue is discussed: https://github.com/npm/cli/issues/2846)
-      python3 ${INTEGRITY_REGULARIZER}
-
       npm install
       npm run build
       npm publish --registry $VERDACCIO_LOCAL_REGISTRY
 
-      cd ../..
-
-      npm install @geo-knowledge-hub/$PACKAGE_NAME
-      cd build-tmp-dir
+      cd ..
   fi
 done
 
 cd ..
 rm -rf build-tmp-dir
+
+# Regularizing integrity from GitHub dependencies.
+# Used to solve the checksum difference error when multiple environments are used.
+# (Example where the issue is discussed: https://github.com/npm/cli/issues/2846)
+python3 ${INTEGRITY_REGULARIZER}
