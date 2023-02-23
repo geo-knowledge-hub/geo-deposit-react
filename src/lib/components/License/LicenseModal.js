@@ -147,7 +147,7 @@ export class LicenseModal extends Component {
                         <Grid.Column width={8} textAlign="right" floated="right">
                           <Menu compact>
                             <Toggle
-                              title={i18next.t("GEO Recomendations")}
+                              title={i18next.t("GEO Recommendations")}
                               label="recommended"
                               filterValue={["tags", "recommended"]}
                             />
