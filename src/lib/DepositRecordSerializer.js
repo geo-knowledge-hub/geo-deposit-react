@@ -207,7 +207,7 @@ export class RDMDepositRecordSerializer extends DepositRecordSerializer {
             fieldpath: "title",
           }),
           description: new Field({
-            fieldpath: "description"
+            fieldpath: "description",
           }),
           scheme: new Field({
             fieldpath: "scheme",
