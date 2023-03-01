@@ -24,12 +24,17 @@ import PropTypes from "prop-types";
 export class SaveButtonResourceComponent extends Component {
   static contextType = DepositFormSubmitContext;
 
-  handleSave = (event) => {
+  handleSave = (event, shouldBePublished) => {
     const { formik } = this.props;
     const { setSubmitContext } = this.context;
     const { handleSubmit } = formik;
 
-    setSubmitContext(DepositFormSubmitActions.SAVE_WITHOUT_CHANGE_URL);
+    if (shouldBePublished) {
+      setSubmitContext(DepositFormSubmitActions.PUBLISH_WITHOUT_CHANGE_URL);
+    } else {
+      setSubmitContext(DepositFormSubmitActions.SAVE_WITHOUT_CHANGE_URL);
+    }
+
     handleSubmit(event);
     scrollTop();
   };
@@ -46,7 +51,9 @@ export class SaveButtonResourceComponent extends Component {
         disabled={isSubmitting}
         onClick={(event) => {
           if (confirmOperation) {
-            confirmOperation(() => this.handleSave(event));
+            confirmOperation((shouldBePublished) =>
+              this.handleSave(event, shouldBePublished)
+            );
           } else {
             this.handleSave(event);
           }
