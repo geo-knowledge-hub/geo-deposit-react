@@ -54,6 +54,7 @@ class DepositBootstrapComponent extends Component {
       saveAction,
       saveActionWithoutChangeUrl,
       publishAction,
+      publishActionWithoutChangeUrl,
       submitReview,
       previewAction,
       deleteAction,
@@ -71,6 +72,9 @@ class DepositBootstrapComponent extends Component {
         break;
       case DepositFormSubmitActions.SAVE_WITHOUT_CHANGE_URL:
         actionFunc = saveActionWithoutChangeUrl;
+        break;
+      case DepositFormSubmitActions.PUBLISH_WITHOUT_CHANGE_URL:
+        actionFunc = publishActionWithoutChangeUrl;
         break;
       case DepositFormSubmitActions.PUBLISH:
         actionFunc = publishAction;
@@ -157,6 +161,7 @@ DepositBootstrapComponent.propTypes = {
   saveAction: PropTypes.func.isRequired,
   saveActionWithoutChangeUrl: PropTypes.func.isRequired,
   publishAction: PropTypes.func.isRequired,
+  publishActionWithoutChangeUrl: PropTypes.func.isRequired,
   submitReview: PropTypes.func.isRequired,
   previewAction: PropTypes.func.isRequired,
   deleteAction: PropTypes.func.isRequired,
@@ -186,6 +191,10 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => ({
   publishAction: (values, { withoutCommunity = false }) =>
     dispatch(publish(values, { withoutCommunity })),
+  publishActionWithoutChangeUrl: (
+    values,
+    { withoutCommunity = false, changeUrl = false }
+  ) => dispatch(publish(values, { withoutCommunity, changeUrl })),
   submitReview: (values, { reviewComment }) =>
     dispatch(submitReview(values, { reviewComment })),
   saveAction: (values) => dispatch(save(values)),

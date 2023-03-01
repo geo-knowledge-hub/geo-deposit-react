@@ -19,6 +19,7 @@ import {
   DRAFT_PUBLISH_FAILED,
   DRAFT_PUBLISH_FAILED_WITH_VALIDATION_ERRORS,
   DRAFT_PUBLISH_STARTED,
+  DRAFT_PUBLISH_SUCCEEDED,
   DRAFT_SAVE_FAILED,
   DRAFT_SAVE_STARTED,
   DRAFT_SAVE_SUCCEEDED,
@@ -151,7 +152,7 @@ export const save = (draft, updateUrl = true) => {
   };
 };
 
-export const publish = (draft, { withoutCommunity = false }) => {
+export const publish = (draft, { withoutCommunity = false, changeUrl = true }) => {
   return async (dispatch, getState, config) => {
     dispatch({
       type: DRAFT_PUBLISH_STARTED,
@@ -173,9 +174,16 @@ export const publish = (draft, { withoutCommunity = false }) => {
     const draftWithLinks = response.data;
     try {
       const response = await config.service.drafts.publish(draftWithLinks.links);
-      // after publishing, redirect to the published record
-      const recordURL = response.data.links.self_html;
-      window.location.replace(recordURL);
+      if (changeUrl) {
+        // after publishing, redirect to the published record
+        const recordURL = response.data.links.self_html;
+        window.location.replace(recordURL);
+      } else {
+        dispatch({
+          type: DRAFT_PUBLISH_SUCCEEDED,
+          payload: { data: response.data },
+        });
+      }
     } catch (error) {
       dispatch({
         type: DRAFT_PUBLISH_FAILED,

@@ -35,6 +35,17 @@ export class LanguagesField extends Component {
     return (
       <Field name={fieldPath}>
         {({ form: { values } }) => {
+          // Getting the value
+          let fieldValue = null;
+
+          if (multiple) {
+            fieldValue = getIn(values, fieldPath, []).map((value) => {
+              return _has(value, "id") ? value.id : value;
+            });
+          } else {
+            fieldValue = getIn(values, fieldPath);
+          }
+
           return (
             <RemoteSelectField
               fieldPath={fieldPath}
@@ -47,9 +58,7 @@ export class LanguagesField extends Component {
               clearable={clearable}
               multiple={multiple}
               initialSuggestions={initialOptions}
-              value={getIn(values, fieldPath, []).map((value) => {
-                return _has(value, "id") ? value.id : value;
-              })}
+              value={fieldValue}
               label={<FieldLabel htmlFor={fieldPath} icon={labelIcon} label={label} />}
               noQueryMessage={i18next.t("Search for languages...")}
               {...(serializeSuggestions && { serializeSuggestions })}

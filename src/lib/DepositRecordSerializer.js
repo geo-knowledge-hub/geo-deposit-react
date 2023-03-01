@@ -25,6 +25,7 @@ import {
   RightsVocabularyField,
   SchemaField,
   VocabularyField,
+  FileField,
 } from "./fields";
 
 import { LocationsFieldSerializer } from "@geo-knowledge-hub/invenio-geographic-components-react";
@@ -57,7 +58,7 @@ export class RDMDepositRecordSerializer extends DepositRecordSerializer {
 
   get depositRecordSchema() {
     return {
-      files: new Field({
+      files: new FileField({
         fieldpath: "files",
       }),
       links: new Field({
@@ -203,6 +204,12 @@ export class RDMDepositRecordSerializer extends DepositRecordSerializer {
       related_identifiers: new SchemaField({
         fieldpath: "metadata.related_identifiers",
         schema: {
+          title: new Field({
+            fieldpath: "title",
+          }),
+          description: new Field({
+            fieldpath: "description",
+          }),
           scheme: new Field({
             fieldpath: "scheme",
           }),
