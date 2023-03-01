@@ -8,6 +8,7 @@
 export { DatesField } from "./DatesField";
 export { Field } from "./Field";
 export { SchemaField } from "./SchemaField";
+export { FileField } from "./FileField";
 export {
   AllowAdditionsVocabularyField,
   FundingField,
