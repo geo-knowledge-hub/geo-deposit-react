@@ -31,11 +31,11 @@ export class RelatedWorksField extends Component {
       <>
         <label className="helptext" style={{ marginBottom: "10px" }}>
           {i18next.t(
-            "Specify identifiers of related works. Supported identifiers include DOI, Handle, ARK, PURL, ISSN, ISBN, PubMed ID, PubMed Central ID, ADS Bibliographic Code, arXiv, Life Science Identifiers (LSID), EAN-13, ISTC, URNs, and URLs."
+            "Specify identifiers of the materials associated with the current record that will not be uploaded (e.g., PDF, Web pages, GitHub repository). Supported identifiers include DOI, URLs, arXiv, and many others."
           )}
         </label>
         <ArrayField
-          addButtonLabel={i18next.t("Add related work")}
+          addButtonLabel={i18next.t("Add external material")}
           defaultNewValue={emptyRelatedWork}
           fieldPath={fieldPath}
           label={<FieldLabel htmlFor={fieldPath} icon={labelIcon} label={label} />}
@@ -127,7 +127,7 @@ RelatedWorksField.propTypes = {
 };
 
 RelatedWorksField.defaultProps = {
-  label: i18next.t("Related works"),
+  label: i18next.t("External materials"),
   labelIcon: "barcode",
   required: undefined,
   showEmptyValue: false,
