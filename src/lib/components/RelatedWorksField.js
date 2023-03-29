@@ -35,7 +35,7 @@ export class RelatedWorksField extends Component {
           )}
         </label>
         <ArrayField
-          addButtonLabel={i18next.t("Add external material")}
+          addButtonLabel={i18next.t("Add")}
           defaultNewValue={emptyRelatedWork}
           fieldPath={fieldPath}
           label={<FieldLabel htmlFor={fieldPath} icon={labelIcon} label={label} />}
