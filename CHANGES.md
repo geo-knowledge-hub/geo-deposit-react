@@ -1,5 +1,18 @@
 # Changes
 
+Version 1.2.3 (released 2023-05-23)
+
+- review build system and dependencies
+
+Version 1.2.2 (released 2023-03-15)
+
+- update dependencies
+
+Version 1.2.1 (released 2023-03-02)
+
+- add custom actions for the GEO Knowledge Hub interface
+- add custom components for the GEO Knowledge Hub interface operations
+
 Version 1.2.0 (released 2023-01-20)
 
 - Always send a `pids` key to the backend. That change is needed as the backend behavior
