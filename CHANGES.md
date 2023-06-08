@@ -1,5 +1,9 @@
 # Changes
 
+Version 1.2.4 (released 2023-06-08)
+
+- update GEO packages.
+
 Version 1.2.3 (released 2023-05-23)
 
 - review build system and dependencies
