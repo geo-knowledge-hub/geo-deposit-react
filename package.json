@@ -169,7 +169,10 @@
     "rollup-plugin-url": "^3.0.0",
     "semantic-ui-css": "^2.4.0",
     "semantic-ui-react": "^2.1.0",
-    "yup": "^0.32.11"
+    "yup": "^0.32.11",
+    "@tanstack/react-query": "^4.32.6",
+    "slick-carousel": "^1.8.1",
+    "react-slick": "^0.29.0"
   },
   "author": {
     "name": "CERN",
