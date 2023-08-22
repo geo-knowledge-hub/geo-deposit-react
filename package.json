@@ -1,6 +1,6 @@
 {
   "name": "@geo-knowledge-hub/geo-deposit-react",
-  "version": "1.2.4",
+  "version": "1.2.5",
   "description": "React components to build forms in Invenio",
   "main": "dist/cjs/index.js",
   "browser": "dist/cjs/index.js",
@@ -91,7 +91,7 @@
     "yup": "^0.32.11",
     "query-string": "^7.1.1",
     "@geo-knowledge-hub/invenio-geographic-components-react": "^0.2.3",
-    "@geo-knowledge-hub/geo-components-react": "^0.4.12"
+    "@geo-knowledge-hub/geo-components-react": "^0.5.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.5.0",
@@ -103,7 +103,7 @@
     "@emotion/css": "^11.9.0",
     "@emotion/react": "^11.9.0",
     "@emotion/styled": "^11.8.1",
-    "@geo-knowledge-hub/geo-components-react": "^0.4.12",
+    "@geo-knowledge-hub/geo-components-react": "^0.5.0",
     "@geo-knowledge-hub/invenio-geographic-components-react": "^0.2.3",
     "@geoman-io/leaflet-geoman-free": "^2.13.0",
     "@inveniosoftware/eslint-config-invenio": "^2.0.0",
@@ -169,7 +169,10 @@
     "rollup-plugin-url": "^3.0.0",
     "semantic-ui-css": "^2.4.0",
     "semantic-ui-react": "^2.1.0",
-    "yup": "^0.32.11"
+    "yup": "^0.32.11",
+    "@tanstack/react-query": "^4.32.6",
+    "slick-carousel": "^1.8.1",
+    "react-slick": "^0.29.0"
   },
   "author": {
     "name": "CERN",
