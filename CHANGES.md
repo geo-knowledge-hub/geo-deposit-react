@@ -1,5 +1,10 @@
 # Changes
 
+Version 1.2.7 (released 2023-08-31)
+
+- update GEO Components React package to version 0.5.2
+- update Invenio Geographic Components React package to version 0.2.4
+
 Version 1.2.6 (released 2023-08-31)
 
 - update GEO Components React package to version 0.5.1
