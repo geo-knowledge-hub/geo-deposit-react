@@ -1,5 +1,9 @@
 # Changes
 
+Version 1.2.8 (released 2023-10-11)
+
+- update GEO Components React package to version 0.5.3
+
 Version 1.2.7 (released 2023-08-31)
 
 - update GEO Components React package to version 0.5.2
