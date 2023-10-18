@@ -91,7 +91,7 @@
     "yup": "^0.32.11",
     "query-string": "^7.1.1",
     "@geo-knowledge-hub/invenio-geographic-components-react": "^0.2.4",
-    "@geo-knowledge-hub/geo-components-react": "^0.5.3"
+    "@geo-knowledge-hub/geo-components-react": "^0.5.4"
   },
   "devDependencies": {
     "@babel/cli": "^7.5.0",
