@@ -268,7 +268,7 @@ export class RDMDepositRecordSerializer extends DepositRecordSerializer {
       locations: new LocationsFieldSerializer({
         fieldpath: "metadata.locations.features",
       }),
-      // Custom fields
+      // Custom fields - General
       geo_work_programme_activity: new VocabularyField({
         fieldpath: "metadata.geo_work_programme_activity",
         deserializedDefault: "",
@@ -286,6 +286,15 @@ export class RDMDepositRecordSerializer extends DepositRecordSerializer {
       }),
       relationship: new Field({
         fieldpath: "relationship",
+      }),
+      // Custom fields - Marketplace
+      launch_url: new Field({
+        fieldpath: "metadata.marketplace.launch_url",
+        deserializedDefault: "",
+      }),
+      vendor_contact: new Field({
+        fieldpath: "metadata.marketplace.vendor_contact",
+        deserializedDefault: "",
       }),
     };
   }
