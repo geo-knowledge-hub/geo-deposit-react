@@ -360,8 +360,8 @@ describe("RDMDepositRecordSerializer tests", () => {
           marketplace: {
             launch_url: "",
             vendor_contact: "",
-           },
-      contributors: [
+          },
+          contributors: [
             {
               affiliations: [],
               person_or_org: {
