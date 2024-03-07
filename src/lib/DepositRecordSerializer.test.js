@@ -162,6 +162,10 @@ describe("RDMDepositRecordSerializer tests", () => {
           subjects: [],
           rights: [],
           funding: [],
+          marketplace: {
+            launch_url: "",
+            vendor_contact: "",
+          },
           version: "",
           geo_work_programme_activity: "",
           target_audiences: [],
@@ -353,6 +357,10 @@ describe("RDMDepositRecordSerializer tests", () => {
           },
         },
         metadata: {
+          marketplace: {
+            launch_url: "",
+            vendor_contact: "",
+          },
           contributors: [
             {
               affiliations: [],
