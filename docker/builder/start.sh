@@ -91,7 +91,7 @@ do
       # (Example where the issue is discussed: https://github.com/npm/cli/issues/2846)
       python3 ${INTEGRITY_REGULARIZER}
 
-      npm install
+      npm --legacy-peer-deps install
       npm run build
       npm publish --registry $VERDACCIO_LOCAL_REGISTRY
 
