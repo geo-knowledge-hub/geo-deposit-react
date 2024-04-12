@@ -361,7 +361,7 @@ describe("RDMDepositRecordSerializer tests", () => {
           marketplace: {
             launch_url: "",
             vendor_contact: "",
-            pricing: []
+            pricing: [],
           },
           contributors: [
             {
