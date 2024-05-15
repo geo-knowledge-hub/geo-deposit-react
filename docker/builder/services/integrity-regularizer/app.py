@@ -24,10 +24,18 @@ package_json = json.load(open(REFERENCE_FILE))
 # 2. Getting dependencies
 #
 dependencies = package_json["dependencies"]
+packages = package_json["packages"]
 
 #
 # 3. Removing dependencies from GEO Knowledge Hub packages installed from GitHub
 #
+
+# Packages
+for depkey in packages.keys():
+    if "@geo-knowledge-hub" in depkey and "integrity" in packages[depkey]:
+        del packages[depkey]["integrity"]
+
+# Dependencies
 for depkey in dependencies.keys():
     if "@geo-knowledge-hub" in depkey and "integrity" in dependencies[depkey]:
         del dependencies[depkey]["integrity"]
