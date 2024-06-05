@@ -296,24 +296,6 @@ export class RDMDepositRecordSerializer extends DepositRecordSerializer {
         fieldpath: "metadata.marketplace.vendor_contact",
         deserializedDefault: "",
       }),
-      pricing: new SchemaField({
-        fieldpath: "metadata.marketplace.pricing",
-        schema: {
-          title: new Field({
-            fieldpath: "title",
-          }),
-          description: new Field({
-            fieldpath: "description",
-          }),
-          url: new Field({
-            fieldpath: "url",
-          }),
-          value: new Field({
-            fieldpath: "value",
-          }),
-        },
-        deserializedDefault: [],
-      }),
     };
   }
 

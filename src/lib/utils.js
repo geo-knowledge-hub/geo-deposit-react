@@ -29,6 +29,52 @@ export function leafTraverse(obj, func = (l) => l) {
 }
 
 /**
+ * Transforms an object into an array of key-value pairs with a specified prefix.
+ * Nested objects are flattened with keys joined by underscores.
+ * The top-level key is prefixed with a given string.
+ *
+ * @param {Object} obj - The object to be transformed.
+ * @param {string} prefix - The prefix to be added to each key.
+ * @returns {Array} An array of key-value pairs with transformed keys.
+ *
+ * @example
+ * const inputObj = {
+ *     "title": "Missing data for required field.",
+ *     "marketplace": {
+ *         "launch_url": "Missing data for required field."
+ *     };
+ * };
+ *
+ * const prefix = 'metadata';
+ * console.log(objectAsList(inputObj, prefix));
+ * // Output:
+ * // [
+ * //   ["metadata.title", "Missing data for required field."],
+ * //   ["metadata.marketplace_launch_url", "Missing data for required field."]
+ * // ]
+ */
+export function objectAsList(obj, prefix) {
+  function transform(obj, parentKey = "", result = []) {
+    for (let key in obj) {
+      let hasProperty = obj.hasOwnProperty(key); // eslint-disable-line no-prototype-builtins
+
+      if (hasProperty) {
+        const newKey = parentKey ? `${parentKey}_${key}` : key;
+        if (typeof obj[key] === "object" && obj[key] !== null) {
+          transform(obj[key], newKey, result);
+        } else {
+          result.push([newKey, obj[key]]);
+        }
+      }
+    }
+    return result;
+  }
+
+  const result = transform(obj);
+  return result.map(([key, value]) => [`${prefix}.${key}`, value]);
+}
+
+/**
  * Sort a list of string values (options).
  * @param {list} options
  * @returns
