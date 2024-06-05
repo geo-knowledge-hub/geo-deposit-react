@@ -27,7 +27,7 @@ import {
   FILE_UPLOAD_SAVE_DRAFT_FAILED,
   RESERVE_PID_FAILED,
 } from "../state/types";
-import { leafTraverse } from "../utils";
+import { leafTraverse, objectAsList } from "../utils";
 import PropTypes from "prop-types";
 
 const defaultLabels = {
@@ -47,6 +47,9 @@ const defaultLabels = {
   "metadata.publisher": i18next.t("Publisher"),
   "metadata.related_identifiers": i18next.t("Related works"),
   "metadata.identifiers": i18next.t("Alternate identifiers"),
+  "metadata.marketplace": i18next.t("Launch URL and Vendor Contact"),
+  "metadata.marketplace_launch_url": i18next.t("Launch URL"),
+  "metadata.marketplace_vendor_contact": i18next.t("Vendor Contact"),
   "access.embargo.until": i18next.t("Embargo until"),
   "pids.doi": i18next.t("DOI"),
 };
@@ -193,9 +196,7 @@ class DisconnectedFormFeedback extends Component {
     //          e.g., {metadata: {creators: ,,,}} => {"metadata.creators": ...}
     // For now, only for metadata, files and access.embargo
     const metadata = errors.metadata || {};
-    const step0Metadata = Object.entries(metadata).map(([key, value]) => {
-      return ["metadata." + key, value];
-    });
+    const step0Metadata = objectAsList(metadata, "metadata");
     const files = errors.files || {};
     const step0Files = Object.entries(files).map(([key, value]) => {
       return ["files." + key, value];
