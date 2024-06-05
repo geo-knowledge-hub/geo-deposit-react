@@ -56,7 +56,9 @@ export function leafTraverse(obj, func = (l) => l) {
 export function objectAsList(obj, prefix) {
   function transform(obj, parentKey = "", result = []) {
     for (let key in obj) {
-      if (obj.hasOwnProperty(key)) {
+      let hasProperty = obj.hasOwnProperty(key); // eslint-disable-line no-prototype-builtins
+
+      if (hasProperty) {
         const newKey = parentKey ? `${parentKey}_${key}` : key;
         if (typeof obj[key] === "object" && obj[key] !== null) {
           transform(obj[key], newKey, result);
