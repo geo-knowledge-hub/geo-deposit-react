@@ -247,6 +247,15 @@ export class FundingField extends Field {
 
         delete deserializedValue["identifiers"];
       }
+
+      if (value.icon) {
+        deserializedValue.icon = value.icon;
+      }
+
+      if (value.disclaimer) {
+        deserializedValue.disclaimer = value.disclaimer;
+      }
+
       return deserializedValue;
     };
 
@@ -282,7 +291,17 @@ export class FundingField extends Field {
      */
     const _serialize = (value) => {
       if (value.id) {
-        return { id: value.id };
+        const defaultValue = { id: value.id };
+
+        if (value.icon) {
+          defaultValue.icon = value.icon;
+        }
+
+        if (value.disclaimer) {
+          defaultValue.disclaimer = value.disclaimer;
+        }
+
+        return defaultValue;
       }
 
       // Record is a custom record, without explicit 'id'
@@ -301,6 +320,14 @@ export class FundingField extends Field {
           },
         ];
         delete clonedValue["url"];
+      }
+
+      if (value.icon) {
+        clonedValue.icon = value.icon;
+      }
+
+      if (value.disclaimer) {
+        clonedValue.disclaimer = value.disclaimer;
       }
 
       return clonedValue;
